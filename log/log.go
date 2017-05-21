@@ -190,7 +190,7 @@ func NewEglooLoggerWithFields(serviceName string, fields Fields) EglooLogger {
 	}
 
 	// TODO get this working correctly
-	// logger := logrus.WithFields(Fields{}.Fields)
+	logger := logrus.WithFields(Fields{}.Fields)
 	logger.Logger.Formatter = &logrus.JSONFormatter{}
 	logger.Logger.Hooks.Add(lfshook.NewHook(lfshook.WriterMap{
 		logrus.InfoLevel:  writer,
