@@ -116,6 +116,13 @@ func SetLevel(level logrus.Level) {
 	logrus.SetLevel(level)
 }
 
+func Kinfo(args ...interface{}) {
+	stdLevel := logrus.StandardLogger().Level
+	SetLevel(logrus.InfoLevel)
+	logrus.Info(args...)
+	SetLevel(stdLevel)
+}
+
 func Info(args ...interface{}) {
 	logrus.Info(args...)
 }
