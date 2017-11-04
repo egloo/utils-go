@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	logrus "github.com/Sirupsen/logrus"
 	stack "github.com/go-stack/stack"
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 	lfshook "github.com/rifflock/lfshook"
+	logrus "github.com/sirupsen/logrus"
 )
 
 // START FROM go-kit/log
