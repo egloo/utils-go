@@ -175,7 +175,8 @@ func NewEglooLogger(serviceName string) EglooLogger {
 	logger.Logger.Formatter = &logrus.JSONFormatter{}
 	logger.Logger.Hooks.Add(lfshook.NewHook(lfshook.WriterMap{
 		logrus.InfoLevel:  writer,
-		logrus.ErrorLevel: writer}))
+		logrus.ErrorLevel: writer},
+		&logrus.JSONFormatter{}))
 
 	return &eglooLogger{
 		logger: logger}
@@ -201,7 +202,8 @@ func NewEglooLoggerWithFields(serviceName string, fields Fields) EglooLogger {
 	logger.Logger.Formatter = &logrus.JSONFormatter{}
 	logger.Logger.Hooks.Add(lfshook.NewHook(lfshook.WriterMap{
 		logrus.InfoLevel:  writer,
-		logrus.ErrorLevel: writer}))
+		logrus.ErrorLevel: writer},
+		&logrus.JSONFormatter{}))
 
 	return &eglooLogger{
 		logger: logger}
