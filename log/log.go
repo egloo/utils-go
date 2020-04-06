@@ -182,7 +182,17 @@ func NewEglooLogger(serviceName string) EglooLogger {
 		logger: logger}
 }
 
+// NewEglooLoggerWithFields some comment
 func NewEglooLoggerWithFields(serviceName string, fields Fields) EglooLogger {
+	logger := logrus.WithFields(Fields{}.Fields)
+	logger.Logger.Formatter = &logrus.JSONFormatter{}
+
+	return &eglooLogger{
+		logger: logger}
+}
+
+// NewEglooLoggerLocalWriterWithFields some comment
+func NewEglooLoggerLocalWriterWithFields(serviceName string, fields Fields) EglooLogger {
 	writer, err := rotatelogs.New(
 		fmt.Sprintf("/var/log/%s.log.%s", serviceName, "%Y%m%d%H%M"),
 		rotatelogs.WithLinkName(fmt.Sprintf("/var/log/%s.log", serviceName)),
